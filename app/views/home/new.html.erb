@@ -1,3 +1,36 @@
-<%= form_tag home_index_path, :method => :post do %>
-  <%= submit_tag %>
-<% end %>
+<%#= form_tag home_index_path, :method => :post do %>
+  <%#= submit_tag %>
+<%# end %>
+<span id="indeed_at"><a title="Job Search" href="https://www.indeed.com">jobs by <img alt=Indeed src="https://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;"></a></span>
+
+<table border="1">
+<tr>
+  <th>city</th>
+  <th>company</th>
+  <th>country</th>
+  <th>date</th>
+  <th>expired</th>
+  <th>formatted_location</th>
+  <th>formatted_location_full</th>
+  <th>formatted_relative_time</th>
+  <th>job_key</th>
+  <th>job_title</th>
+  <th>snippet</th>
+</tr>
+
+  <% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.city %></td>
+    <td><%= job.company %></td>
+    <td><%= job.country %></td>
+    <td><%= job.date %></td>
+    <td><%= job.expired %></td>
+    <td><%= job.formatted_location %></td>
+    <td><%= job.formatted_location_full %></td>
+    <td><%= job.formatted_relative_time %></td>
+    <td><%= job.job_key %></td>
+    <td><%= job.job_title %></td>
+    <td><%= job.snippet %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,20 @@
+<%@results.each do |result|%>
+  <div style="background-color: gray">
+
+    <div>Name: <%=result.css("div.sre-entry div.sre-content")%></div>
+
+    <div>Title: <%=result.css("div.sre-content div.app_name a.app_link").text%></div>
+    
+    <div>Location: <%=result.css("div.sre-content div.app_name span.location").text%></div>
+    <div>
+
+    <%result.css("div.sre-content div.experience").each do |exp|%>
+      <div>
+        <span>Experience: <%= exp.text %></span>
+        <span>Company: <%= exp.css("span.company").text %></span>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <br/>
+<%end%>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'home#new'
-  resources :home, only: [:new, :create]
-
+  root 'home#index'
+  resources :home, only: [:index, :new, :create]
+  get 'talents', to: "home#talents"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
