@@ -1,6 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-	default :from => 'no-reply@example.com',
-          :subject => 'An email sent via SendGrid'
-
-  layout 'mailer'
+	#default :from => 'crystal.badu@gmail.com',
+    #       :subject => 'An email sent via SendGrid'
+    default from: "crystal.badu@gmail.com"
+    layout 'mailer'
 end
