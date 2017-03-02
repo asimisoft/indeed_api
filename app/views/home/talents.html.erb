@@ -1,7 +1,7 @@
 <%@results.each do |result|%>
   <div style="background-color: gray">
 
-    <div>Name: <%=result.css("div.sre-entry div.sre-content")%></div>
+    <div>Name: <%=result.css("div.sre-entry div.sre-content div.app_name a")%></div>
 
     <div>Title: <%=result.css("div.sre-content div.app_name a.app_link").text%></div>
     
@@ -14,6 +14,10 @@
         <span>Company: <%= exp.css("span.company").text %></span>
       </div>
     <% end %>
+
+    <div>
+      Education: <%= result.css("div.sre-entry div.sre-content div.education").text %>
+    </div>
     </div>
   </div>
   <br/>
