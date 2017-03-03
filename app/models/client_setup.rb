@@ -1,14 +1,17 @@
 # Gem used are: indeed-ruby
-
 require 'indeed-ruby'
 
 class ClientSetup
-	def self.activate
+	def self.activate(q, l, limit, start)
 		client = Indeed::Client.new "7260941144511308"
 
 		params = {
-		    :q => 'software engineer',
-		    :l => 'austin',
+		    :q => q,
+		    :l => l,
+		    # :radius => 25,
+		    limit: limit,
+		    start: start,
+		    # fromage: 2.days,
 		    :userip => '1.2.3.4',
 		    :useragent => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)'
 		}
