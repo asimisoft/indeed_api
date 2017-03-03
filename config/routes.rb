@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :posts
+  get 'posts/new'
+
+  get 'posts/create'
+
+  get 'posts/index'
+
   root 'home#index'
   resources :home, only: [:index, :new, :create]
   get 'talents', to: "home#talents"

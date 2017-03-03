@@ -1,36 +1,62 @@
 <%#= form_tag home_index_path, :method => :post do %>
   <%#= submit_tag %>
 <%# end %>
-<span id="indeed_at"><a title="Job Search" href="https://www.indeed.com">jobs by <img alt=Indeed src="https://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;"></a></span>
+
+<!-- <span id="indeed_at"><a title="Job Search" href="https://www.indeed.com">jobs by <img alt=Indeed src="https://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;"></a></span> -->
 
 <table border="1">
 <tr>
-  <th>city</th>
-  <th>company</th>
-  <th>country</th>
-  <th>date</th>
-  <th>expired</th>
-  <th>formatted_location</th>
-  <th>formatted_location_full</th>
-  <th>formatted_relative_time</th>
-  <th>job_key</th>
   <th>job_title</th>
+  <th>company</th>
+  <th>city</th>
+  <th>state</th>
+  <th>formatted_location</th>
+  <th>source</th>
+  <th>date</th>
   <th>snippet</th>
+  <th>url</th>
+  <th>job_key</th>
+  <th>job_key</th>
+  <th>sponsored</th>
+  <th>expired</th>
+  <th>formattedLocationfull</th>
+  <th>formattedRelativeTime</th>
 </tr>
 
   <% @jobs.each do |job| %>
-  <tr>
-    <td><%= job.city %></td>
-    <td><%= job.company %></td>
-    <td><%= job.country %></td>
-    <td><%= job.date %></td>
-    <td><%= job.expired %></td>
-    <td><%= job.formatted_location %></td>
-    <td><%= job.formatted_location_full %></td>
-    <td><%= job.formatted_relative_time %></td>
-    <td><%= job.job_key %></td>
-    <td><%= job.job_title %></td>
-    <td><%= job.snippet %></td>
-  </tr>
+      <tr data-id="<%= job["url"] %>" class="link">
+        <td><%= job["jobtitle"] %></td>
+        <td><%= job["company"] %></td>
+        <td><%= job["city"] %></td>
+        <td><%= job["state"] %></td>
+        <td><%= job["country"] %></td>
+        <td><%= job["formattedLocation"] %></td>
+        <td><%= job["source"] %></td>
+        <td><%= job["date"] %></td>
+        <td><%= job["snippet"] %></td>
+        <td><%= job["url"] %></td>
+        <td><%= job["jobkey"] %></td>
+        <td><%= job["sponsored"] %></td>
+        <td><%= job["expired"] %></td>
+        <td><%= job["formattedLocationfull"] %></td>
+        <td><%= job["formattedRelativeTime"] %></td>
+      </tr>
   <% end %>
 </table>
+
+
+<script type="text/javascript">
+  $(window).load(function(){
+    alert("trigger");
+  });
+
+  $(document).on("click", ".link", function() {
+    url = $(this).closest("tr").data("id");
+    window.open(url,'_blank');
+  });
+
+  function clickme(url) {
+    console.log(url)
+    alert(url);
+  }
+</script>

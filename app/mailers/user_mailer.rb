@@ -1,4 +1,4 @@
-include SendGrid
+# include SendGrid
 
 class UserMailer < ApplicationMailer
   def register

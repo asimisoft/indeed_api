@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def new
-    qry = ClientSetupInd.qry
-    @jobs = qry.results
+    # qry = ClientSetupInd.qry
+    qry = ClientSetup.activate
+    @jobs = qry["results"]
   end
 
   def create
