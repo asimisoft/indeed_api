@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'video/index'
+  post 'upload', to: 'video#upload'
+
   resources :posts
   get 'posts/new'
 

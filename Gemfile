@@ -62,3 +62,5 @@ gem 'sendgrid'
 gem 'sendgrid-rails', '~> 2.0'
 gem 'nokogiri'
 gem 'httparty'
+
+gem 'grape-builder' 

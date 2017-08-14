@@ -1,20 +1,21 @@
 class PostsController < ApplicationController
-	# respond_to :json
+	# respond :xml
+
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   def index
     @posts = Post.all
-    respond_to  do |format|
-    	format.json {render json: @posts}
-    	format.xml do
-		    # headers['Content-Disposition'] = 'attachment;filename="katalog.xml"'
-		    # render :xml => @posts.to_xml(:skip_types => true, :root => "Items"),
-		    #        :layout => false,
-		    #        :content_type => Mime::XML
-		    render xml: @posts
-		  end
-    end
+    # respond_to  do |format|
+    # 	format.json {render json: @posts}
+    # 	format.xml do
+		  #   # headers['Content-Disposition'] = 'attachment;filename="katalog.xml"'
+		  #   # render :xml => @posts.to_xml(:skip_types => true, :root => "Items"),
+		  #   #        :layout => false,
+		  #   #        :content_type => Mime::XML
+		  #   render xml: @posts
+		  # end
+    # end
   end
 
   # GET /posts/1

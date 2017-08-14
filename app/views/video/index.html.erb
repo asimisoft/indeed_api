@@ -1,0 +1,68 @@
+<h1>addpipe.com</h1>
+<!-- begin video recorder code -->
+<script type="text/javascript">
+var size = {width:400,height:330};
+var flashvars = {qualityurl: "avq/300p.xml",accountHash:"de1f6ce37330a7cc866d597ac80f98b7", eid:1, showMenu:"true", mrt:120,sis:0,asv:1,mv:0};
+(function() {var pipe = document.createElement('script'); pipe.type = 'text/javascript'; pipe.async = true;pipe.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 's1.addpipe.com/1.3/pipe.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pipe, s);})();
+</script>
+<div id="hdfvr-content" ></div>
+<!-- end video recorder code -->
+
+
+<p>1. vidrack.com 2. addpipe.com</p>
+
+------------------------
+<div>vidrack</div>
+<iframe width="420" height="375" src="http://vidrack.me/StartupFest/embedded/" frameborder="0" allowfullscreen></iframe>
+
+<div>getbravo.com -ve api keys are there will check it out later</div>
+<script type="text/javascript" src="https://www.getbravo.com/record/?url=https://abc5.getbravo.com?campid=3773" ></script>
+
+***********************************************************
+
+cameratag.com
+<camera data-app-id='a-8186a1c0-e23c-0134-ffe3-0a76e15fb04a' id='myCamera'></camera>
+<player data-uuid='v-9bbf8a5f-8728-448a-b05c-8444e452485a' id='MyPlayer'></player>
+
+***********************************************************
+
+ZIGGEO
+<%# ZIGGEO_TOKEN="de2bd2f24be7aca46f693e47c25c08a0" %>
+
+<!-- <ziggeo ziggeo-limit=15
+    ziggeo-width=320
+    ziggeo-height=240>
+</ziggeo>
+ -->
+
+<%= form_tag upload_path do %>
+    <%= text_field_tag :ziggeo_token, nil, id: 'ziggeo-token' %>
+    
+    <ziggeo ziggeo-video=''
+        ziggeo-width=320
+        ziggeo-height=240>
+    </ziggeo>
+
+    <%= submit_tag %>
+<% end %>
+
+<% if Token.first.token %>
+    <ziggeo ziggeo-video=<%= Token.first.token %>
+        ziggeo-width=320
+        ziggeo-height=240>
+    </ziggeo>
+<% end %>
+
+
+<script>
+    ZiggeoApi.Events.on("submitted", function (data) {
+        $('#ziggeo-token').val(data.video.token);
+    });
+
+    ZiggeoApi.Videos.index({}, {
+        success: function (args, videos) {
+            for (var i = 0; i < videos.length; ++i)
+                $("body").append("<ziggeo ziggeo-video='" + videos[i].token + "'></ziggeo>");
+        }
+    });
+</script>
